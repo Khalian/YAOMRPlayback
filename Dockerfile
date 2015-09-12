@@ -23,7 +23,7 @@ RUN apt-get update && apt-get -y upgrade
 # Install java
 RUN     apt-get -y install openjdk-7-jdk git
 
-# The installation of tessaract and audiveris libraries
+# The installation of tessaract and audiveris libraries, necessary for its functioning
 RUN     apt-get -y install tesseract-ocr liblept4 libtesseract3 tesseract-ocr-deu tesseract-ocr-eng tesseract-ocr-fra tesseract-ocr-ita
 RUN     wget https://kenai.com/projects/audiveris/downloads/download/oldies/audiveris-4.2.3318-ubuntu-amd64.deb -O audiveris.deb
 RUN     dpkg -i audiveris.deb
@@ -33,6 +33,6 @@ RUN     apt-get -y install wget unzip
 RUN     wget https://services.gradle.org/distributions/gradle-2.5-bin.zip
 RUN     unzip gradle-2.5-bin.zip
 
-# Build the Modulo7 project
-RUN     git clone https://github.com/Khalian/Modulo7
-RUN     export PATH=$PATH:/gradle-2.5/bin && cd Modulo7 && gradle build
+# Build the YAOMRPlayback project
+RUN     git clone https://github.com/Khalian/YAOMRPlayback
+RUN     export PATH=$PATH:/gradle-2.5/bin && cd YAOMRPlayback && gradle build
