@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export AUDIVERIS_JAR_LOCATION=/usr/bin/audiveris/AudiverisApp/dist
+gradle build
+java -jar ./build/libs/YAOMRPlayback-1.0.jar $1

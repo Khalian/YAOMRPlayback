@@ -1,0 +1,51 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+// Java specific build configurations
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/java'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+dependencies {
+    compile group: 'commons-io', name: 'commons-io', version: '2.4'
+    compile 'commons-lang:commons-lang:2.6'
+
+    compile files('lib/jfugue-5.0.3.jar')
+
+    compile 'xom:xom:1.1'
+
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Title': 'YAOMRPLAYBACK',
+                'Implementation-Version': 1.0,
+                'Main-Class': 'YAOMRMain'
+
+    }
+
+    // remove the security files (from mail.jar / activation.jar) so that the jar will be executable.
+    doFirst {
+        from (configurations.runtime.resolve().collect { it.isDirectory() ? it : zipTree(it) }) {
+            exclude 'META-INF/MANIFEST.MF'
+            exclude 'META-INF/*.SF'
+            exclude 'META-INF/*.DSA'
+            exclude 'META-INF/*.RSA'
+        }
+    }
+}
+

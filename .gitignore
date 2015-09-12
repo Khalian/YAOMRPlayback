@@ -1,0 +1,15 @@
+# Folders
+/bin/*
+/target/*
+/build/*
+/gradle/*
+
+# Normal Files
+.settings
+.idea
+.gradle
+.project
+.classpath
+*.class
+*.iml
+*.log
