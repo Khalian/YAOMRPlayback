@@ -41,7 +41,7 @@ public class AudiverisSheetMusicParser {
     public AudiverisSheetMusicParser(final String sheetFileLocation) {
         this.sheetFileLocation = sheetFileLocation;
         intermediateMusicXMLLocation = FileUtils.getTempDirectoryPath() + File.separator
-                + RandomStringUtils.randomAlphabetic(7) +FilenameUtils.getBaseName(sheetFileLocation) + ".xml";
+                + RandomStringUtils.randomAlphabetic(7) +FilenameUtils.getBaseName(sheetFileLocation) + ".mxl";
     }
 
     /**

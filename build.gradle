@@ -26,7 +26,7 @@ dependencies {
 
     compile files('lib/jfugue-5.0.3.jar')
 
-    compile 'xom:xom:1.1'
+    compile 'xom:xom:1.2.5'
 
 }
 
